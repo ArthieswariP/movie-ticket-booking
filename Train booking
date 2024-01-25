@@ -1,0 +1,64 @@
+class userData:
+    users = []
+    def __init__(self, user_id:int, user_name:str, mail_id:str, phone_no:str, password:str):
+        self.user_id = user_id
+        self.user_name = user_name
+        self.mail_id = mail_id
+        self.phone_no = phone_no
+        self.password = password
+
+class UserFunctionality:
+    def validate_user(self, mail_id, password=None):
+        registered_mail_id = [user.mail_id for user in UsersData.users if user.mail_id == mail_id]
+
+        if not registered_mail_id and password == None:
+            return True
+        else:
+            verified_password = [user.password for user in UsersData.users if user.password == password]
+            if registered_mail_id and verified_password:
+                return True
+
+def signup(self):
+        user_id = (UsersData.users[-1].user_id)+1
+        user_name = input("Enter User name:\n").lower()
+        mail_id = input("Enter Mail Id:\n").lower()
+        phone_no = input("Enter a Mobile number:\n")
+        password = input("Enter a password:\n")
+
+        if self.validate_user(mail_id):
+            new_user = UsersData(user_id, user_name, mail_id, phone_no,password)
+            UsersData.users.append(new_user)
+            return mail_id
+
+def login(self):
+    input_id = input("Enter your registered mail id:\n").lower()
+    input_password = input("\nEnter your password:\n")
+    if self.validate_user(input_id, input_password):
+        return input_id
+    
+class Train:
+    def __init__(self, name, total_seats):
+        self.name = name
+        self.total_seats = total_seats
+        self.available_seats = total_seats
+        self.tickets = []
+
+    def display_train_info(self):
+        print("enter name: \n")
+        print("Enter total seats : \n ")
+        print("Available Seats: \n")
+        
+def book_ticket(self, passenger, num_tickets):
+        if num_tickets > 0 and num_tickets <= self.available_seats:
+            ticket = Ticket(train=self, passenger=passenger, num_tickets=num_tickets)
+            self.tickets.append(ticket)
+            self.available_seats -= num_tickets
+            print("Successfully booked")
+            print("Your seat numbers: \n")
+        else:
+            print("Invalid number of tickets or not enough available seats.")
+
+class Passenger:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
